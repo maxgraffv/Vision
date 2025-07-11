@@ -1,16 +1,13 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.16)
 project(Vision)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_C_STANDARD 23)
+set(CMAKE_CXX_STANDARD 17)
 
-find_package(OpenCV REQUIRED)
+# Setting the path to Qt
+set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/qt")
 
-# add_subdirectory()
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-include_directories(${CMAKE_SOURCE_DIR}/matrix)
-include_directories(${CMAKE_SOURCE_DIR}/image)
+add_executable(Vision main.cpp)
+target_link_libraries(Vision PRIVATE Qt6::Widgets)
 
-add_executable(vision main.cpp Matrix/Matrix.cpp Image/Image.cpp)
-
-target_link_libraries(vision ${OpenCV_LIBS})
