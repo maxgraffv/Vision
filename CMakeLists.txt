@@ -15,8 +15,12 @@ target_include_directories(Matrix PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Matrix)
 add_library(Image Image/Image.h Image/Image.cpp)
 target_include_directories(Image PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Image)
 
+add_library(AppWindow AppWindow/AppWindow.cpp AppWindow/AppWindow.h)
+target_include_directories(AppWindow PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/AppWindow)
+
 target_link_libraries(Image PUBLIC Matrix)
 
-add_executable(Vision main.cpp)
+add_executable(Vision main.cpp )
 
-target_link_libraries(Vision PRIVATE Image Qt6::Widgets)
+target_link_libraries(AppWindow PRIVATE Qt6::Widgets)
+target_link_libraries(Vision PRIVATE AppWindow Image Qt6::Widgets)
