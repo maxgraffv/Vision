@@ -1,13 +1,18 @@
 #include <stdlib.h>
 
 #include "Matrix.h"
+#include <stdio.h>
 #include "Image.h"
+#include "AppWindow.h"
+
+#include<QApplication>
+#include <QPushButton>
 
 int main(int argc, char** argv)
 {
 
 
-	Matrix* m = Matrix::createIdentityMatrix(5); //new Matrix();
+	Matrix* m = Matrix::createIdentityMatrix(5);
 	m->print();
 
 	printf("\n\n");
@@ -16,10 +21,13 @@ int main(int argc, char** argv)
 	minor->print();
 
 
-	Image* img = new Image("/Users/maxgraff/Desktop/Vision/image.rgb");
+	Image* img = new Image("");
 	img->show();
 
-
+	QApplication app(argc, argv);
+	AppWindow window;
+	window.show();
+	app.exec();
 
 	return 0;
 }
