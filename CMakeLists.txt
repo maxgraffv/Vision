@@ -8,6 +8,14 @@ set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/qt")
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-add_executable(Vision main.cpp)
-target_link_libraries(Vision PRIVATE Qt6::Widgets)
+add_library(Matrix Matrix/Matrix.h Matrix/Matrix.cpp)
+target_include_directories(Matrix PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Matrix)
 
+add_library(Image Image/Image.h Image/Image.cpp)
+target_include_directories(Image PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Image)
+
+target_link_libraries(Image PUBLIC Matrix)
+
+add_executable(Vision main.cpp)
+
+target_link_libraries(Vision PRIVATE Image Qt6::Widgets)
