@@ -1,6 +1,7 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+#include <cstdint>
 #include "Matrix.h"
 
 class Image : public Matrix

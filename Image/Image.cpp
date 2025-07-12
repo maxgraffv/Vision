@@ -1,4 +1,6 @@
 #include "Image.h"
+#include <cstdlib>
+#include <cstdio>
 
 // #include <opencv2/opencv.hpp>
 
