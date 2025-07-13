@@ -6,12 +6,9 @@
 #include "AppWindow.h"
 
 #include<QApplication>
-#include <QPushButton>
 
 int main(int argc, char** argv)
 {
-
-
 	Matrix* m = Matrix::createIdentityMatrix(5);
 	m->print();
 
