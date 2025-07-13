@@ -2,9 +2,10 @@
 #define APP_WINDOW_H
 
 #include <QWidget>
+#include <QPushButton>
+#include <QLabel>
 
-class QPushButton;
-class QLabel;
+
 
 class AppWindow : public QWidget
 {

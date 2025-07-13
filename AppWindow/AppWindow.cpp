@@ -1,7 +1,5 @@
 #include "AppWindow.h"
 
-#include <QPushButton>
-#include <QLabel>
 #include <QVBoxLayout>
 
 
