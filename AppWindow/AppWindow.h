@@ -13,14 +13,11 @@ class AppWindow : public QWidget
     Q_OBJECT
 
     private:
-        QPushButton* _button;
-        QLabel* _label;
-        QImage* _imageLeft;
-        QImage* _imageRight;
+        int _width, _height;    
 
 
     public:
-        AppWindow(QWidget *parent = nullptr);
+        AppWindow(int width, int height, QWidget* parent = nullptr);
     
 };
 
