@@ -3,11 +3,9 @@
 #include <cstdio>
 
 
-Image::Image(const char* path) : Matrix( 0,0 )
+Image::Image(int width, int height, const char* path) : Matrix( width,height )
 {
 
-    setWidth(300);
-    setHeight(168);
     load(path);
 
 
@@ -39,28 +37,6 @@ int Image::load(const char* path)
         fclose(file);
         return 1;
     }
-
-    return 0;
-}
-
-
-int Image::show()
-{
-    int row = 0;
-    int col = 0;
-    int pixel = 0;
-
-    while( row < getHeight() )
-    {
-        while( col < getWidth() )
-        {
-            col++;
-            pixel += 3;
-        }
-        row++;
-        col = 0;
-    }
-
 
     return 0;
 }

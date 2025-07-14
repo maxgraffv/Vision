@@ -9,12 +9,13 @@ class Image : public Matrix
     private:
         const char* path;
         uint8_t* buffer;
+        friend class QtImage;
 
 
     public:
-        Image(const char* path);
+        Image(int width, int height, const char* path);
         int load(const char* path);
-        int show();
+        int reload();
 
 
 };
