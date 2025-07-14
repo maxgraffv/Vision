@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <cstdio>
 
-// #include <opencv2/opencv.hpp>
 
 Image::Image(const char* path) : Matrix( 0,0 )
 {
@@ -47,8 +46,6 @@ int Image::load(const char* path)
 
 int Image::show()
 {
-    // cv::Mat image(getHeight(), getWidth(), CV_8UC3, cv::Scalar(0, 0, 0)); // Black canvas
-
     int row = 0;
     int col = 0;
     int pixel = 0;
@@ -57,7 +54,6 @@ int Image::show()
     {
         while( col < getWidth() )
         {
-            // image.at<cv::Vec3b>(row, col) = cv::Vec3b( buffer[pixel+2] , buffer[pixel+1], buffer[pixel]); // BGR
             col++;
             pixel += 3;
         }
@@ -65,9 +61,6 @@ int Image::show()
         col = 0;
     }
 
-
-    // cv::imshow("My Window", image);
-    // cv::waitKey(0); // Wait for key press
 
     return 0;
 }

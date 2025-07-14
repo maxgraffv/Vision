@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include <QImage>
 
 
 
@@ -14,6 +15,8 @@ class AppWindow : public QWidget
     private:
         QPushButton* _button;
         QLabel* _label;
+        QImage* _imageLeft;
+        QImage* _imageRight;
 
 
     public:
