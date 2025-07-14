@@ -10,11 +10,6 @@
 
 AppWindow::AppWindow(int width, int height, QWidget* parent) : QWidget(parent), _width(width), _height(height)
 {
-    _button = new QPushButton("Click");
-    _label = new QLabel("Hello Label");
-
-    _imageLeft = new QImage();
-
     /*
         LAYOUT
     */
