@@ -22,6 +22,16 @@ class Pixel
         /*
             !!! OVERLOAD Operators
         */
+       Pixel& operator*(double x)
+       {
+            _red = (uint8_t)((double)(_red) * x);
+            _green = (uint8_t)((double)(_green) * x);
+            _blue = (uint8_t)((double)(_blue) * x);
+
+            if(_red > 255) _red = 255;
+            if(_green > 255) _green = 255;
+            if(_blue > 255) _blue = 255;
+       }
 
 };
 
