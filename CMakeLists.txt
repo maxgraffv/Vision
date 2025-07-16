@@ -11,7 +11,7 @@ set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/qt")
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-add_library(Matrix Matrix/Matrix.h Matrix/Matrix.cpp)
+add_library(Matrix Matrix/Matrix.h Matrix/Matrix.tpp)
 target_include_directories(Matrix PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Matrix)
 
 add_library(Image Image/Image.h Image/Image.cpp)
