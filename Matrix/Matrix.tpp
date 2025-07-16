@@ -18,6 +18,11 @@ Matrix<T>::Matrix(int w, int h) : width(w), height(h), _buffer(std::vector<T>(w*
     
 }
 
+template<typename T> 
+Matrix<T>::~Matrix()
+{
+
+}
 
 template<typename T> 
 int Matrix<T>::getHeight()

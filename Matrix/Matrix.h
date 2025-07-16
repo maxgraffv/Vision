@@ -16,6 +16,7 @@ class Matrix
     public:
         Matrix();
         Matrix(int w, int h);
+        virtual ~Matrix();
 
 
         int getHeight();

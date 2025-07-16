@@ -8,6 +8,10 @@ Image::Image(int width, int height, const char* path) : Matrix( width,height )
     load(path);
 }
 
+Image::~Image()
+{
+
+}
 
 int Image::load(const char* path)
 {

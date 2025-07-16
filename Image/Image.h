@@ -14,6 +14,7 @@ class Image : public Matrix<uint8_t>
 
     public:
         Image(int width, int height, const char* path);
+        virtual ~Image();
         int load(const char* path);
         int reload();
 
