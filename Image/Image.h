@@ -8,7 +8,6 @@ class Image : public Matrix<uint8_t>
 {
     private:
         const char* path;
-        // uint8_t* buffer;
 
         friend class QtImage;
 
