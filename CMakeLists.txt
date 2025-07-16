@@ -31,6 +31,8 @@ target_link_libraries(QtImage PUBLIC Image)
 
 add_executable(Vision main.cpp )
 
-target_link_libraries(AppWindow PRIVATE QtImage Qt6::Widgets)
+add_subdirectory(ImageProcessor)
+
+target_link_libraries(AppWindow PRIVATE QtImage Qt6::Widgets ImageProcessor)
 target_link_libraries(QtImage PRIVATE Qt6::Widgets)
 target_link_libraries(Vision PRIVATE AppWindow QtImage Qt6::Widgets)
