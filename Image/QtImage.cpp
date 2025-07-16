@@ -12,3 +12,9 @@ QtImage::QtImage(int width, int height, const char* path) : Image(width, height,
     this->setPixmap(QPixmap::fromImage(*_qImage));
 }
 
+void QtImage::refresh()
+{
+    _qImage = new QImage(this->Matrix::buffer().data(), _width, _height, QImage::Format_RGB888);
+    this->setPixmap(QPixmap::fromImage(*_qImage));
+}
+

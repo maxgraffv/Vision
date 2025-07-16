@@ -18,6 +18,7 @@ class QtImage : public Image, public QLabel
     public:
         QtImage(int width, int height, const char* path);
 
+        void refresh() override;
 
 
 };
