@@ -18,8 +18,10 @@ class AppWindow : public QWidget
 
     public:
         AppWindow(int width, int height, QWidget* parent = nullptr);
+        ~AppWindow();
     
 };
+
 
 
 
