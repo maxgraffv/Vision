@@ -8,7 +8,7 @@ QtImage::QtImage(int width, int height, const char* path) : Image(width, height,
     _width = width;
     _height = height;
 
-    _qImage = new QImage(buffer, _width, _height, QImage::Format_RGB888);
+    _qImage = new QImage(this->Matrix::buffer().data(), _width, _height, QImage::Format_RGB888);
     this->setPixmap(QPixmap::fromImage(*_qImage));
 }
 
