@@ -35,7 +35,10 @@ AppWindow::AppWindow(int width, int height, QWidget* parent) : QWidget(parent), 
 
 
 
+}
 
+AppWindow::~AppWindow()
+{
 
-  }
+}
   
