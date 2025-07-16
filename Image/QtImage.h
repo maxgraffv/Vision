@@ -15,7 +15,6 @@ class QtImage : public Image, public QLabel
 
         friend class AppWindow;
 
-
     public:
         QtImage(int width, int height, const char* path);
 
