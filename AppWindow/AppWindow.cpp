@@ -7,6 +7,7 @@
 #include <QPixmap>
 #include "QtImage.h"
 #include "ImageProcessor.h"
+#include "DataCompute.h"
 
 
 AppWindow::AppWindow(int width, int height, QWidget* parent) : QWidget(parent), _width(width), _height(height)
@@ -21,13 +22,14 @@ AppWindow::AppWindow(int width, int height, QWidget* parent) : QWidget(parent), 
     /*
         IMAGE
     */
-    QtImage* img = new QtImage(860, 554, "../0.rgb");
+    QtImage* img = new QtImage(860, 554, "../image.rgb");
     layout->addWidget(img, 0, Qt::AlignCenter);
 
-    QtImage* img2 = new QtImage(860, 554, "../0.rgb");
+    QtImage* img2 = new QtImage(860, 554, "../image.rgb");
     layout->addWidget(img2, 0, Qt::AlignCenter);
 
-
+    DataCompute *dc = new DataCompute();
+    dc->printC();
 
     ImageProcessor* proc = new ImageProcessor();
 

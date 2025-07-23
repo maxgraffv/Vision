@@ -1,10 +1,12 @@
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for VSCode .json
 cmake_minimum_required(VERSION 3.16)
-project(Vision)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for VSCode .json
+project(Vision LANGUAGES C CXX CUDA)
 set(CMAKE_AUTOMOC ON)
 
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_CUDA_ARCHITECTURES 86)
 
 # Setting the path to Qt
 set(CMAKE_PREFIX_PATH "/opt/homebrew/opt/qt")
@@ -32,7 +34,8 @@ target_link_libraries(QtImage PUBLIC Image)
 add_executable(Vision main.cpp )
 
 add_subdirectory(ImageProcessor)
+add_subdirectory(DataCompute)
 
-target_link_libraries(AppWindow PRIVATE QtImage Qt6::Widgets ImageProcessor)
+target_link_libraries(AppWindow PRIVATE QtImage Qt6::Widgets ImageProcessor DataCompute)
 target_link_libraries(QtImage PRIVATE Qt6::Widgets)
 target_link_libraries(Vision PRIVATE AppWindow QtImage Qt6::Widgets)
