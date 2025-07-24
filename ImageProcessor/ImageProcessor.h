@@ -2,6 +2,7 @@
 #define IMAGE_PROCESSOR_H
 
 #include "QtImage.h"
+#include "Matrix.h"
 
 class ImageProcessor
 {
@@ -14,6 +15,7 @@ class ImageProcessor
         ImageProcessor();
         void test(QtImage* img);
 
+        Matrix<float> gausianBlurMatrix();
 
 
 

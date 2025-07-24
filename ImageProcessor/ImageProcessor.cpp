@@ -27,3 +27,22 @@ void ImageProcessor::test(QtImage* img)
     img->refresh();
 }
 
+
+
+Matrix<float> ImageProcessor::gausianBlurMatrix()
+{
+    Matrix<float> gaussMat(5,5);
+
+    float arr2d[5][5] = {
+        {1,4,6,4,1},
+        {4,16,24,16,4},
+        {6,24,36,24,6},
+        {4,16,24,16,4},
+        {1,4,6,4,1}
+    };
+
+    gaussMat = Matrix<float>::mat(&arr2d[0][0], 5, 5);
+
+    return gaussMat;
+}
+
