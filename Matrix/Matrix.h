@@ -25,6 +25,7 @@ class Matrix
         void setWidth(int w);
 
         std::vector<T>& buffer();
+        static Matrix<T> mat(T* element, int w, int h);
 
         void print();
 

@@ -63,9 +63,30 @@ void Matrix<T>::print()
     for(int i = 0; i < height; i++)
     {
         for(int j = 0; j < width; j++)
-            std::cout << *this->get_p(j, i);
+            std::cout << this->_buffer[(i*width) + j];
 
         std::cout << std::endl;
     }
 }
 
+
+template<typename T> 
+Matrix<T> Matrix<T>::mat(T* element, int w, int h)
+{
+    Matrix<T> mat(w, h);
+
+    int totalLen = w * h;
+    int i = 0;
+    auto iter = mat._buffer.begin();
+
+    mat._buffer.clear();
+    for(int y = 0; y < h; y++)
+    {
+        for(int x = 0; x < w; x++)
+        {
+            mat._buffer.push_back(element[i]);
+            i++;
+        }
+    }
+    return mat;
+}
