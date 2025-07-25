@@ -49,17 +49,30 @@ Matrix<float> ImageProcessor::gausianBlurMatrix()
 }
 
 
-Matrix<float> ImageProcessor::sobelMatrix(float m)
+Matrix<float> ImageProcessor::sobelMatrix(float m, bool horizontal)
 {
     Matrix<float> sobelMat(3,3);
 
-    float arr2d[3][3] = {
+    float* arr_p = nullptr;
+
+    float h[3][3] = {
         {-1*m, 0, 1},
         {-2*m, 0, 2},
-        {-1*m, 0, 1},
+        {-1*m, 0, 1}
     };
 
-    sobelMat = Matrix<float>::mat(&arr2d[0][0], 3, 3);
+    float v[3][3] = {
+        {-1*m, -2*m, -1*m},
+        {0, 0, 0},
+        {1, 2, 1}
+    };
+
+    if(horizontal)
+        arr_p = &h[0][0];
+    else
+        arr_p = &v[0][0];
+
+    sobelMat = Matrix<float>::mat(arr_p, 3, 3);
     sobelMat = sobelMat;
 
     return sobelMat;

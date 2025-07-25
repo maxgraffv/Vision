@@ -16,7 +16,7 @@ class ImageProcessor
         void test(QtImage* img);
 
         Matrix<float> gausianBlurMatrix();
-        Matrix<float> sobelMatrix(float m);
+        Matrix<float> sobelMatrix(float m=1.0, bool horizontal=true);
 
 
 
