@@ -8,12 +8,12 @@ Matrix<T>::Matrix()
 {
     this->width = 0;
     this->height = 0;
-    this->data = std::vector<float>();
+    this->_buffer = std::vector<T>();
 }
 
 
 template<typename T> 
-Matrix<T>::Matrix(int w, int h) : width(w), height(h), _buffer(std::vector<T>(w*h*3))
+Matrix<T>::Matrix(int w, int h) : width(w), height(h), _buffer(std::vector<T>(w*h))
 {
     
 }
@@ -89,4 +89,52 @@ Matrix<T> Matrix<T>::mat(T* element, int w, int h)
         }
     }
     return mat;
+}
+
+
+template<typename T> 
+Matrix<T> Matrix<T>::operator*(Matrix<T>& other)
+{
+    int A_h = this->height;
+    int A_w = this->width;
+    int B_h = other.height;
+    int B_w = other.width;
+
+    int newSize = A_h * B_w;
+    T C[B_w][A_h];
+
+
+    if( A_w != B_h)
+    {
+        printf("Unable for matmul. Wrong size\n");
+    }
+    else
+    {
+        for (int i = 0; i < A_h; ++i)
+            for (int k = 0; k < A_w; ++k)
+                for (int j = 0; j < B_w; ++j)
+                    C[i][j] += this->_buffer[(this->width * i) +k] * other._buffer[(other.width*k) +j];
+
+    }
+
+    Matrix<T> ret;
+    ret = Matrix<T>::mat(&C[0][0], B_w, A_h);
+    return ret;
+}
+
+template<typename T> 
+Matrix<T>& Matrix<T>::operator*(double v)
+{
+    for(int i = 0; i < this->buffer().size(); i++)
+    {
+        this->buffer()[i] *= v;
+    }
+
+    return *this;
+}
+
+template<typename T> 
+void Matrix<T>::applyKernel(Matrix<T>& kernel)
+{
+
 }

@@ -28,6 +28,10 @@ class Matrix
         static Matrix<T> mat(T* element, int w, int h);
 
         void print();
+        Matrix<T> operator*(Matrix<T>& other);
+        Matrix<T>& operator*(double v);
+        void applyKernel(Matrix<T>& kernel);
+        
 
 };
 
