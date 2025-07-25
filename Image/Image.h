@@ -3,8 +3,9 @@
 
 #include <cstdint>
 #include "Matrix.h"
+#include "Pixel.h"
 
-class Image : public Matrix<uint8_t>
+class Image : public Matrix<double>
 {
     private:
         const char* path;
@@ -17,6 +18,11 @@ class Image : public Matrix<uint8_t>
         virtual ~Image();
         int load(const char* path);
         virtual void refresh() = 0;
+        void applyKernel(Matrix<float>& kernel);
+        Pixel getPixel(int i);
+        Pixel getPixel(int x, int y);
+        
+
 
 
 };
