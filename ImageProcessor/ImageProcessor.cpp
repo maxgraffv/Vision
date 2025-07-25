@@ -7,9 +7,9 @@ ImageProcessor::ImageProcessor()
 
 void ImageProcessor::test(QtImage* img)
 {
-    double* r = 0;
-    double* g = 0;
-    double* b = 0;
+    float* r = 0;
+    float* g = 0;
+    float* b = 0;
 
     for(int i = 0; i < img->buffer().size(); i++)
     {

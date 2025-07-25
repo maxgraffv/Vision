@@ -5,7 +5,7 @@
 #include "Matrix.h"
 #include "Pixel.h"
 
-class Image : public Matrix<double>
+class Image : public Matrix<float>
 {
     private:
         const char* path;

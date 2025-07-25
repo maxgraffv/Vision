@@ -36,6 +36,7 @@ add_executable(Vision main.cpp )
 add_subdirectory(ImageProcessor)
 add_subdirectory(DataCompute)
 
+target_link_libraries(DataCompute PRIVATE Image QtImage)
 target_link_libraries(AppWindow PRIVATE QtImage Qt6::Widgets ImageProcessor DataCompute)
 target_link_libraries(QtImage PRIVATE Qt6::Widgets)
 target_link_libraries(Vision PRIVATE AppWindow QtImage Qt6::Widgets)

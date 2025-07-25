@@ -7,7 +7,7 @@
 Image::Image(int width, int height, const char* path) : Matrix( width,height )
 {
     this->buffer().clear();
-    this->buffer() = std::vector<double>(width*height*3, 0.f); // Image needs 3 times more data for RGB
+    this->buffer() = std::vector<float>(width*height*3, 0.f); // Image needs 3 times more data for RGB
 
     load(path);
 }
@@ -92,7 +92,7 @@ void Image::applyKernel(Matrix<float>& kernel)
     int kCenterY = kHeight / 2;
 
 
-    std::vector<double> newImgVec;
+    std::vector<float> newImgVec;
 
     for (int y = 0; y < this->getHeight(); ++y) {
         for (int x = 0; x < this->getWidth(); ++x) {
