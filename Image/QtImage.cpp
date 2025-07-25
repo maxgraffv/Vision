@@ -4,7 +4,8 @@
 #include <QLabel>
 #include <algorithm>
 
-QtImage::QtImage(int width, int height, const char* path) : Image(width, height, path), buffer8u(std::vector<uint8_t>(this->buffer().size()))
+QtImage::QtImage(int width, int height, const char* path) 
+    : Image(width, height, path), display_buf(std::vector<uint8_t>(this->buffer().size()))
 {
     _width = width;
     _height = height;
@@ -15,7 +16,7 @@ QtImage::QtImage(int width, int height, const char* path) : Image(width, height,
 
 void QtImage::refresh()
 {
-    std::transform(this->buffer().begin(), this->buffer().end(), this->buffer8u.begin(), [](double val) {
+    std::transform(this->buffer().begin(), this->buffer().end(), this->display_buf.begin(), [](double val) {
         if(val > 255.0)
             val = 255.0;
         if(val < 0.0)
@@ -26,7 +27,7 @@ void QtImage::refresh()
 
     
 
-    _qImage = new QImage(this->buffer8u.data(), _width, _height, QImage::Format_RGB888);
+    _qImage = new QImage(this->display_buf.data(), _width, _height, QImage::Format_RGB888);
     this->setPixmap(QPixmap::fromImage(*_qImage));
 }
 

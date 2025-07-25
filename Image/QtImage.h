@@ -11,7 +11,7 @@ class QtImage : public Image, public QLabel
 
     private:
         QImage* _qImage;
-        std::vector<uint8_t> buffer8u;
+        std::vector<uint8_t> display_buf;
         int _width, _height;
 
         friend class AppWindow;
