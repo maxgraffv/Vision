@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 # 🔧 Ustawienia
 batch_size = 64
-epochs = 10
+epochs = 5
 learning_rate = 0.001
 device = torch.device('cuda' if torch.cuda.is_available() else 'mps' if torch.mps.is_available() else 
                       'cpu')
@@ -23,10 +23,10 @@ transform = transforms.Compose([
 
 # 📥 Dane
 train_data = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
-test_data  = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
+# test_data  = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
 
 train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
-test_loader  = DataLoader(test_data, batch_size=batch_size)
+# test_loader  = DataLoader(test_data, batch_size=batch_size)
 
 # 🧠 Model
 class SimpleCNN(nn.Module):
@@ -70,19 +70,29 @@ for epoch in range(epochs):
 
     print(f"Epoch {epoch+1}/{epochs}, Loss: {total_loss/len(train_loader):.4f}")
 
-# ✅ Test
-model.eval()
-correct = 0
-total = 0
-with torch.no_grad():
-    for images, labels in test_loader:
-        images, labels = images.to(device), labels.to(device)
-        outputs = model(images)
-        _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
 
-print(f"Test Accuracy: {100 * correct / total:.2f}%")
+
+
+
+
+# ✅ Test
+# model.eval()
+# correct = 0
+# total = 0
+# with torch.no_grad():
+#     for images, labels in test_loader:
+#         images, labels = images.to(device), labels.to(device)
+#         outputs = model(images)
+#         _, predicted = torch.max(outputs.data, 1)
+#         total += labels.size(0)
+#         correct += (predicted == labels).sum().item()
+
+# print(f"Test Accuracy: {100 * correct / total:.2f}%")
+
+
+
+
+
 
 # 👁️‍🗨️ Przykładowe predykcje
 images, labels = next(iter(test_loader))
